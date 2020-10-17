@@ -73,10 +73,14 @@ class NilaiController extends Controller
         $total_user = User::all()->count();
         $total_soal = Soal::all()->count();
         return response()->json([
-            'lulus' => $lulus,
-            'tidak lulus' => $tidak_lulus,
-            'total siswa' => $total_soal,
-            'total soal' => $total_soal,
+            
+            'data' => [
+                    'lulus' => $lulus,
+                    'tidak lulus' => $tidak_lulus,
+                    'total siswa' => $total_soal,
+                    'total soal' => $total_soal,
+            ]
+
         ], 202);
     }
 
