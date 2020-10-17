@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Nilai\NilaiResource;
 use App\Nilai;
+use App\Soal;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class NilaiController extends Controller
@@ -62,6 +64,20 @@ class NilaiController extends Controller
          return response()->json([
              'data' => $users
          ]);
+    }
+
+    public function dashboard(){
+
+        $lulus = Nilai::where('keterangan','LULUS')->count();
+        $tidak_lulus = Nilai::where('keterangan','TIDAK LULUS')->count();
+        $total_user = User::all()->count();
+        $total_soal = Soal::all()->count();
+        return response()->json([
+            'lulus' => $lulus,
+            'tidak lulus' => $tidak_lulus,
+            'total siswa' => $total_soal,
+            'total soal' => $total_soal,
+        ], 202);
     }
 
     /**
