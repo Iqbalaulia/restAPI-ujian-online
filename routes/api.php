@@ -39,3 +39,7 @@ Route::put('pengaturan/{id}', 'Api\Pengaturan\PengaturanController@update');
 // Login
 
 Route::post('user/login','Api\User\UserController@login');
+
+// Nilai Siswa
+
+Route::get('nilai', 'Api\Nilai\NilaiController@index');
