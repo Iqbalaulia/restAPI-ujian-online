@@ -19,9 +19,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // SOAL REST API
 
+// Soal
 Route::resource('soal', 'Api\Soal\SoalController')->except([
     'create', 'edit'
 ]);
+
+// User
+Route::resource('user', 'Api\User\UserController')->except([
+    'create', 'edit'
+]);
+
+// Peraturan
 
 Route::get('pengaturan', 'Api\Pengaturan\PengaturanController@index');
 
