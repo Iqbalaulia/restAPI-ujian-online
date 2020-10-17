@@ -48,8 +48,10 @@ class SoalController extends Controller
 
     }
 
-    public function destroy($id)
+    public function destroy(Soal $soal)
     {
-        //
+        $soal->delete();
+
+        return response('Deleted', Response::HTTP_OK);
     }
 }
