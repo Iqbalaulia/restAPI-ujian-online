@@ -34,3 +34,8 @@ Route::resource('user', 'Api\User\UserController')->except([
 Route::get('pengaturan', 'Api\Pengaturan\PengaturanController@index');
 
 Route::put('pengaturan/{id}', 'Api\Pengaturan\PengaturanController@update');
+
+
+// Login
+
+Route::post('user/login','Api\User\UserController@login');

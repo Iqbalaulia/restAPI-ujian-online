@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserResource;
 use App\User;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -98,5 +99,20 @@ class UserController extends Controller
          $user->delete();
 
          return response('Deleted', Response::HTTP_OK);
+    }
+
+
+    public function login(Request $request){
+
+        if(!Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            
+            return response()->json([
+                'status' => 'failed'
+            ]);
+        }else {
+            return response()->json([
+                'status' => 'success login!'
+            ]);
+        }
     }
 }
