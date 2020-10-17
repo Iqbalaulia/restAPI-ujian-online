@@ -1,5 +1,6 @@
 <?php
 
+use App\Nilai;
 use App\Pengaturan;
 use App\Soal;
 use App\User;
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
         factory(User::class,20)->create();
         factory(Soal::class,20)->create();
         factory(Pengaturan::class,20)->create();
+        factory(Nilai::class,20)->create();
 
+        
     }
 }
