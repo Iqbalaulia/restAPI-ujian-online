@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Soal\SoalResource;
 use App\Soal;
+use Illuminate\Http\Response;
 
 class SoalController extends Controller
 {
@@ -42,7 +43,9 @@ class SoalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $soal = Soal::create($request->all());
+
+        return response(new SoalResource($soal), Response::HTTP_CREATED);
     }
 
     /**
