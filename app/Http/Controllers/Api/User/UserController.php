@@ -46,9 +46,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($android_id)
     {
-        //
+        $user = User::where('android_id',$android_id)->first();
+
+        return new UserResource($user);
     }
 
     /**
