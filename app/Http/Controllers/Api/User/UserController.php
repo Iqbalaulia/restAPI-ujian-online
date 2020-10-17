@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserResource;
 use App\User;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -77,9 +78,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $android_id)
     {
-        //
+        $user = User::where('android_id',$android_id)->first();
+        
+        $user->update($request->all());
+
+        return response(new UserResource($user), Response::HTTP_CREATED);
     }
 
     /**
