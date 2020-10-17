@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
         factory(User::class,20)->create();
         factory(Soal::class,20)->create();
         factory(Pengaturan::class,20)->create();
-        factory(Nilai::class,20)->create();
-
-        
+        factory(Nilai::class,20)->create();        
     }
 }

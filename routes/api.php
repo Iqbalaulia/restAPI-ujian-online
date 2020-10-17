@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// SOAL REST API
+
+Route::resource('soal', 'Api\Soal\SoalController')->except([
+    'create', 'edit'
+]);
