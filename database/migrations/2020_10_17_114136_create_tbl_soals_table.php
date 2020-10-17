@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePengaturansTable extends Migration
+class CreateTblSoalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreatePengaturansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengaturans', function (Blueprint $table) {
+        Schema::create('tbl_soals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_ujian');
-            $table->string('waktu');
-            $table->string('nilai_min');
-            $table->string('peraturan_ujian');
+            $table->text('soal');
+            $table->string('jawaban_a');
+            $table->string('jawaban_b');
+            $table->string('jawaban_c');
+            $table->string('jawaban_d');            
+            $table->string('knc_jawaban');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreatePengaturansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengaturans');
+        Schema::dropIfExists('soals');
     }
 }
