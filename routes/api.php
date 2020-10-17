@@ -24,3 +24,5 @@ Route::resource('soal', 'Api\Soal\SoalController')->except([
 ]);
 
 Route::get('pengaturan', 'Api\Pengaturan\PengaturanController@index');
+
+Route::put('pengaturan/{id}', 'Api\Pengaturan\PengaturanController@update');

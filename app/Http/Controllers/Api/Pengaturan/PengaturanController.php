@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Pengaturan\PengaturanResource;
 use App\Pengaturan;
+use Illuminate\Http\Response;
 
 class PengaturanController extends Controller
 {
@@ -72,7 +73,12 @@ class PengaturanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $pengaturan = Pengaturan::findOrFail($id);
+
+        $pengaturan->update($request->all());
+
+        return response(new PengaturanResource($pengaturan), Response::HTTP_CREATED);
     }
 
     /**
