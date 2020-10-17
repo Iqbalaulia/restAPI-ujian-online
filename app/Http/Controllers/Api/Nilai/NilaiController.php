@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Nilai\NilaiResource;
 use App\Nilai;
+use Illuminate\Support\Facades\DB;
 
 class NilaiController extends Controller
 {
@@ -46,9 +47,21 @@ class NilaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($android_id)
     {
-        //
+         $users = DB::table('tbl_nilais')
+         ->join('users','users.id', '=', 'tbl_nilais.user_id')
+         ->where('android_id',$android_id)
+         ->select(
+             'tbl_nilais.benar', 'tbl_nilais.salah', 'tbl_nilais.kosong', 'tbl_nilais.score',
+             'users.android_id','users.name', 'users.jenis_kelamin','users.kelas',
+             'users.email','users.nik'
+         )
+         ->get();
+
+         return response()->json([
+             'data' => $users
+         ]);
     }
 
     /**
