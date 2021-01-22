@@ -41,7 +41,7 @@ Route::put('pengaturan/{id}', 'Api\Pengaturan\PengaturanController@update');
 Route::post('user/login','Api\User\UserController@login');
 
 // Nilai Siswa
-
+// testing
 Route::get('nilai', 'Api\Nilai\NilaiController@index');
 
 Route::get('nilai/{android_id}', 'Api\Nilai\NilaiController@show');
