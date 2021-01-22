@@ -46,5 +46,4 @@ Route::get('nilai', 'Api\Nilai\NilaiController@index');
 // testing2
 Route::get('nilai/{android_id}', 'Api\Nilai\NilaiController@show');
 // testing2
-
 Route::get('dashboard', 'Api\Nilai\NilaiController@dashboard');
